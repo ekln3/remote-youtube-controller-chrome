@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- <link rel="stylesheet" href="index.css" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- CSS only -->
+  <script src="https://kit.fontawesome.com/4a0faa16a8.js" crossorigin="anonymous"></script>
+  <title>Youtube Remote Controller for Chrome beta</title>
+  <style>
+    .tab_title{
+      /* white-space: nowrap;  */
+      overflow: hidden; /* ハミ出した部分を隠す */
+      text-overflow: ellipsis; /* 「…」と省略 */
+      -webkit-text-overflow: ellipsis; /* Safari */
+      -o-text-overflow: ellipsis; /* Opera */
+    }
+    body {
+      width: 100%;
+      /* font-family: "Helvetica Neue", Arial,"Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", Meiryo, sans-serif; */
+      font-family: serif;
+      touch-action: pan-y;
+    }
+    #header{
+      width: 90%;
+      margin: 0 auto;
+      font-size: 1.2em;
+    }
+    #headera{
+      text-align: center;
+      margin: auto;
+      background-color: #e9e9e9;
+      border-color: #ddd;
+      color: #333;
+      text-shadow: 0 1px 0 #eee;
+      font-weight: 700;
+      border-width: 1px 0;
+      border-style: solid;
+      position: relative;
+      -webkit-text-size-adjust: 80%;
+      font-size: 1em;
+      line-height: 1.3;
+    }
+    .tab_info{
+      width: 90%;
+      height: 10em;
+      margin: 1em 1em;
+      
+    }
+    .tab_block{
+      width: 100%;
+      height: inherit;
+    }
+    .tab_head{
+      width: 90%;
+      height: 4em;
+    }
+    .tab_head a{
+      width: inherit;
+      padding: 10px;
+      /* background-color: white; */
+      background-color: none;
+      color: white;
+      text-decoration: none;
+    }
+    .tab_controllers_parent{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .tab_controllers div{
+      padding: 10px 0;
+    }
+    .tab_controller button{
+      width: 18vw;
+    }
+  </style>
+</head>
+
+<body >
+  <div data-role="page">
+
+    <div id="header">
+      <div>
+        <span class="title">Youtube Remote Controller for Chrome beta v0.1</span>
+        <button hidden id="reload"><i class="fas fa-reload"></i>Reload</button>
+      </div>
+    </div>
+
+    <div role="main" class="ui-content">
+
+      <!-- <ul id="tab_info_proto" class="tab_info " data-role="listview" data-filter="true" data-filter-placeholder="Search fruits..." data-inset="true"> -->
+
+      <div id="tab_info_proto" class="tab_info" hidden>
+        <div class="tab_block" style="background-color:rgba(0, 0, 0, 0.35);">
+          <div class="tab_head"><a class="tab_title" href="#" target="_blank">tsunenori - Floral Clock</a>
+            <div style="display: flex; justify-content: center;">
+              <div class="tab_favicon" style="width:10%" hidden><img width="100%" src="img/youtube_social_icon_red.png"alt="favIcon"></div>
+              <div class="thumbnail"><img src="" alt=""></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="tab_controllers_parent">
+            <div class="tab_controllers" style="background-color:rgba(255, 255, 255, 0.0);">
+              <div class="tab_controller" style="display: flex; margin: 0 1em; background-color:rgba(255, 255, 255, 0.0); justify-content: center;">
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="back"><i class="fas fa-step-backward"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="backward"><i class="fas fa-backward"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="play"><i class="fas fa-play"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="forward"><i class="fas fa-forward"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="next"><i class="fas fa-step-forward"></i></button>
+              </div>
+              <div class="tab_controller" style="display: flex; margin: 0 1em; justify-content: center;">
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn volume-up"><i class="fas fa-volume-up"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn volume-down"><i class="fas fa-volume-down"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn volume-mute"><i class="fas fa-volume-mute"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn pip"><i class="fas fa-images"></i></button>
+                <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn fullscreen"><i class="fas fa-expand"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="tab_list"></div>
+
+
+    </div>
+
+    <div hidden>
+      <div id="feedbackchan">
+        <input type="text" id="textchan" width=200>
+        <button id="subchan">send feedback</button><span id="thanchan"></button>
+          <script src="feedbackchan.js"></script>
+      </div>
+
+      <!-- 発言フォーム -->
+      <form id="frm-post">
+        <input type="text" id="msg">
+        <button>command</button>
+      </form>
+
+      <!-- 発言ログ -->
+      <ul id="msglist">
+      </ul>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="commander.js"></script>
+  </div>
+</body>
+
+</html>

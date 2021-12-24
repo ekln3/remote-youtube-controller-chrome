@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+  <!-- CSS only -->
+  <script src="https://kit.fontawesome.com/4a0faa16a8.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: white;
+      text-align: center;
+      background-color: #181818;
+    }
+
+    input[type="text"] {
+      background-color: inherit;
+      color: inherit;
+      border: 0;
+      border-bottom: 1px gray solid;
+    }
+
+    input[type="text"]:focus {
+      /*フォーカスした時に影をつける*/
+      box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4);
+      /*フォーカスした時に枠線を太く濃く*/
+      border: solid 2px #666;
+    }
+
+    button {
+      background-color: rgb(62, 168, 255);
+      border-radius: 2px;
+      border: 0;
+    }
+
+    #header {
+      width: 100%;
+      color: white;
+      background-color: #202020;
+      margin: 0;
+      padding: 0;
+      font-size: 1.0em;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    #qrcode {
+      width: 128;
+      height: 128px;
+      margin: 5px;
+    }
+
+    .card {
+      color: white;
+      background-color: inherit;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 0;
+      padding: 0;
+      font-size: 1.3em;
+      text-align: left;
+      font-weight: 400;
+    }
+
+    .card ul {
+      text-align: left;
+    }
+
+    .message {
+      border-color: rgb(62, 168, 255);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="header">
+    <span>Youtube Remote Controller</span>
+  </div>
+
+
+  <div class="card">
+    <h3>Port check: (default: 4000)</h3><span id="message" class="message"></span>
+    <input id="portinput" value="4000" size="10" type="text"></input>
+    <button id="changeport">check port</button><br>
+
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>Possible URL:</h3>
+    <ul id="ips" style="margin: 0; "></ul>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>Connected URL:</h3>
+    <ul id="connectedurl" style="margin: 0; "></ul>
+  </div>
+
+
+  <div class="card">
+    <div id="qrcode"></div>
+    <form>
+      <input id="url" type="text" hidden><br>
+      <button hidden id="getqr">refresh QR</button>
+    </form>
+  </div>
+
+  <button hidden id="reload_extension">reload this extension</button>
+
+
+  <script src="qrcode/qrcode.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script src="popup.js"></script>
+
+
+</body>
+
+</html>

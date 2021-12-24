@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- <link rel="stylesheet" href="index.css" /> -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- CSS only -->
+  <script src="https://kit.fontawesome.com/4a0faa16a8.js" crossorigin="anonymous"></script>
+</head>
+
+<body style="touch-action: pan-y;">
+  <div data-role="page">
+
+    <div data-role="header">
+      <h1>controller</h1>
+      <button id="reload"><i class="fas fa-reload"></i>Reload</button>
+    </div>
+
+    <div role="main" class="ui-content">
+
+      <!-- <ul id="tab_info_proto" class="tab_info " data-role="listview" data-filter="true" data-filter-placeholder="Search fruits..." data-inset="true"> -->
+
+      <div id="tab_info_proto" class="tab_info" hidden>
+        <ul data-role="listview" data-inset="rue" style="background-color:rgba(0, 0, 0, 0.35); ">
+          <li><a class="tab_title" href="#" target="_blank">tsunenori - Floral Clock</a>
+            <div style="display: flex;">
+              <div class="tab_favicon" style="width:10%" hidden><img width="100%" src="img/youtube_social_icon_red.png"alt="favIcon"></div>
+              <div class="thumbnail" style="width: 30%; margin: auto;"><img style="width: 100%;" src="" alt=""></div>
+              <div></div>
+            </div>
+          </li>
+          <li style="background-color:rgba(255, 255, 255, 0.0); border:0;">
+            <div class="tab_controller" style="display: flex; margin: 0 1em; background-color:rgba(255, 255, 255, 0.0); ;">
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="back"><i class="fas fa-step-backward"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="backward"><i class="fas fa-backward"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="play"><i class="fas fa-play"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="forward"><i class="fas fa-forward"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="next"><i class="fas fa-step-forward"></i></button>
+            </div>
+            <div class="tab_controller" style="display: flex; margin: 0 1em">
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn volume-up"><i class="fas fa-volume-up"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn volume-down"><i class="fas fa-volume-down"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn volume-mute"><i class="fas fa-volume-mute"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn pip"><i class="fas fa-images"></i></button>
+              <button style="background-color: rgba(255, 255, 255, 0.0); border: 0; color:white;" datarole="none" class="ui-btn fullscreen"><i class="fas fa-expand"></i></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+
+      <div id="tab_list"></div>
+
+
+    </div>
+
+    <div hidden>
+      <div id="feedbackchan">
+        <input type="text" id="textchan" width=200>
+        <button id="subchan">send feedback</button><span id="thanchan"></button>
+          <script src="feedbackchan.js"></script>
+      </div>
+
+      <!-- 発言フォーム -->
+      <form id="frm-post">
+        <input type="text" id="msg">
+        <button>command</button>
+      </form>
+
+      <!-- 発言ログ -->
+      <ul id="msglist">
+      </ul>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="commander.js"></script>
+  </div>
+</body>
+
+</html>
